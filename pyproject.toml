@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "global-wallet"
+version = "0.1.0"
+description = ""
+authors = ["rbides <renanbides@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.111.1"
+uvicorn = "^0.30.3"
+sqlalchemy = "^2.0.31"
+pydantic-settings = "^2.3.4"
+python-dotenv = "^1.0.1"
+alembic = "^1.13.2"
+psycopg2-binary = "^2.9.9"
+pytest = "^8.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
