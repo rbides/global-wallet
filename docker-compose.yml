@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "postgres2024"
+    ports:
+      - "5432:5432"
+    network_mode: host
+  run_migrations:
+    build:
+      context: .
+    env_file: .env
+    ports:
+      - "5433:5433"
+    network_mode: host
+    depends_on: ['db']
+    command: alembic upgrade head
+  api:
+    build:
+      context: .
+    env_file: .env
+    ports:
+     - "8000:8000"
+    network_mode: host # for now
+    depends_on: ['db', 'run_migrations']
